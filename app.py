@@ -44,6 +44,10 @@ location = st.sidebar.multiselect("Select Location: ", options = options)
 profile_op = ["Data Analyst", "Ethical Hacker", "Cyber Security Analyst", "Full Stack Developer", "Gen AI Expert"]
 profile = st.sidebar.multiselect("Select Job profile: ", options = profile_op)
 
+#=======Get_User_Info==========
+st.markdown("""### GET UER INFO""")
+user_info = st.text_area("""Write your Resume Description: """)
+
 #==========MODEL==========
 model = ChatGoogleGenerativeAI(
     model = 'gemini-3.5-flash-lite',
@@ -128,3 +132,14 @@ def get_jobs(agent, Location = "NOIDA, DELHI", Profile = "Data Analysts, AI Engi
 
 # code = get_jobs(agent)
 # DISPLAY.HTML(code)
+
+if st.button("Generate Resume"):
+    with st.spinner("Agent Running"):
+        code = main_agent(agent, user_info)
+        st.html(code, width = "stretch",
+                unsafe_allow_javascript = True)
+        st.divider() # to give horizontal division
+        job_code = get_jobs(agent, location, profile)
+        st.html(job_code, width = "stretch", 
+                unsafe_allow_javascript = True)
+
