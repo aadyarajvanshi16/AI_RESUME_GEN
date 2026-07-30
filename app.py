@@ -21,6 +21,8 @@ st.title("AI RESUME GENERATOR")
 st.write("""This app helps user to build customized professional 
 resume with latest job apply links""")
 st.image("bg.png")
+st.sidebar.title("Fill Important Details")
+st.sidebar.image("bg.png")
 
 #========API-KEYS=========
 GROQ_API_KEY = "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"
