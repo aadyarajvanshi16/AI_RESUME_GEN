@@ -90,7 +90,7 @@ def main_agent(agent, query):
   it must be with dynamic UI and UX and,
   with advanced CSS Professional Designing
   Make sure to give output in HTML format only,
-  THE COLOUR THEME SHOULD BE A COMBINATION OF PATEL PINK & PASTEL GREEN ONLY,
+  THE COLOUR THEME SHOULD BE A COMBINATION OF PATEL SHADES ONLY,
   no markdowns allowed
   """
 
