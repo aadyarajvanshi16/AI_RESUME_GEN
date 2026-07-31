@@ -20,9 +20,9 @@ st.set_page_config(layout = "wide")
 st.title("AI RESUME GENERATOR")
 st.write("""This app helps user to build customized professional 
 resume with latest job apply links""")
-st.image("bg.png")
+st.image("https://raw.githubusercontent.com/aadyarajvanshi16/AI_RESUME_GEN/refs/heads/main/bg.png")
 st.sidebar.title("Fill Important Details")
-st.sidebar.image("bg.png")
+st.sidebar.image("https://raw.githubusercontent.com/aadyarajvanshi16/AI_RESUME_GEN/refs/heads/main/bg.png")
 
 #========API-KEYS=========
 GROQ_API_KEY = st.sidebar.text_input("Groq-API", type = "password")
@@ -35,6 +35,11 @@ if not all(all_API):
     st.stop()
 elif all(all_API):
     st.success("API KEYS LOADED SUCCESFULLY")
+    #==========MODEL==========
+    model = ChatGoogleGenerativeAI(
+        model = 'gemini-3.5-flash-lite',
+        google_api_key = GOOGLE_API_KEY
+    )
 else:
     st.info("Pass all API keys")
 
@@ -47,12 +52,6 @@ profile = st.sidebar.multiselect("Select Job profile: ", options = profile_op)
 #=======Get_User_Info==========
 st.markdown("""### GET UER INFO""")
 user_info = st.text_area("""Write your Resume Description: """)
-
-#==========MODEL==========
-model = ChatGoogleGenerativeAI(
-    model = 'gemini-3.5-flash-lite',
-    google_api_key = GOOGLE_API_KEY
-)
 
 # response = model.invoke("Hello Buddy!")
 # response.content[-1]['text']
